@@ -1,193 +1,84 @@
-# Social Media API
+# Turborepo starter
 
-A powerful, scalable backend API for a social media platform built using **NestJS** and **GraphQL**. This API supports user authentication, posts, comments, likes, follow/unfollow functionality, and real-time notifications.
+This is an official starter Turborepo.
 
----
+## Using this example
 
-## Features
+Run the following command:
 
-- **Authentication**:
-  - Register/Login with JWT or OAuth.
-  - Role-based access control.
-
-- **User Management**:
-  - Manage user profiles.
-  - Follow/unfollow other users.
-
-- **Posts and Comments**:
-  - Create, read, update, and delete posts.
-  - Add comments to posts.
-
-- **Likes and Notifications**:
-  - Like/unlike posts.
-  - Real-time notifications for actions like likes and new followers.
-
-- **GraphQL API**:
-  - Efficient queries and mutations for all resources.
-  - Subscriptions for real-time updates.
-
-- **Scalability and Performance**:
-  - Database integration with MongoDB or PostgreSQL.
-  - Caching with Redis for frequent queries.
-  - Real-time events with WebSockets.
-
----
-
-## Tech Stack
-
-### Core Technologies
-
-- **NestJS**: Backend framework for building scalable applications.
-- **GraphQL**: API query language.
-- **MongoDB/PostgreSQL**: Database for storing user and post data.
-- **Redis**: Caching for performance optimization.
-- **WebSockets**: Real-time notifications.
-
-### DevOps & Deployment
-
-- **Docker**: Containerized deployment.
-- **AWS S3**: Media storage for posts.
-- **GitHub Actions**: CI/CD pipeline.
-
----
-
-## Folder Structure
-
-```
-src/
-├── common/              # Shared modules, utilities, and constants
-├── config/              # Configuration files
-├── modules/             # Feature modules
-│   ├── auth/            # Authentication module
-│   ├── user/            # User management module
-│   ├── post/            # Posts module
-│   ├── comment/         # Comments module
-│   ├── notification/    # Notifications module
-│   ├── follow/          # Follow/Unfollow module
-├── database/            # Database configuration and migrations
-├── graphql/             # GraphQL-related files
-├── main.ts              # Entry point for the app
-└── app.module.ts        # Root module
+```sh
+npx create-turbo@latest
 ```
 
----
+## What's inside?
 
-## Installation
+This Turborepo includes the following packages/apps:
 
-### Prerequisites
+### Apps and Packages
 
-- Node.js (v16 or later)
-- MongoDB/PostgreSQL
-- Redis
-- Docker (optional, for containerization)
+- `docs`: a [Next.js](https://nextjs.org/) app
+- `web`: another [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-### Steps
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-1. Clone the repository:
+### Utilities
 
-   ```bash
-   git clone https://github.com/your-username/social-media-api.git
-   cd social-media-api
-   ```
+This Turborepo has some additional tools already setup for you:
 
-2. Install dependencies:
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
 
-   ```bash
-   npm install
-   ```
+### Build
 
-3. Configure environment variables:
-   - Create a `.env` file in the root directory.
-   - Add the following variables:
+To build all apps and packages, run the following command:
 
-     ```env
-     DATABASE_URL=<your-database-url>
-     REDIS_URL=<your-redis-url>
-     JWT_SECRET=<your-secret-key>
-     AWS_S3_BUCKET=<your-s3-bucket>
-     ```
+```
+cd my-turborepo
+pnpm build
+```
 
-4. Run the application:
+### Develop
 
-   ```bash
-   npm run start:dev
-   ```
+To develop all apps and packages, run the following command:
 
-5. Access the GraphQL Playground:
-   - Navigate to: `http://localhost:3000/graphql`
+```
+cd my-turborepo
+pnpm dev
+```
 
----
+### Remote Caching
 
-## Usage
+> [!TIP]
+> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
 
-### Running Tests
+Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
 
-- Unit tests:
+By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
 
-  ```bash
-  npm run test
-  ```
+```
+cd my-turborepo
+npx turbo login
+```
 
-- End-to-end tests:
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
 
-  ```bash
-  npm run test:e2e
-  ```
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
 
-### API Documentation
+```
+npx turbo link
+```
 
-- GraphQL Playground: `http://localhost:3000/graphql`
+## Useful Links
 
-### Key Endpoints (GraphQL Queries/Mutations)
+Learn more about the power of Turborepo:
 
-1. **Users**:
-   - `registerUser`
-   - `login`
-   - `getUserProfile`
-2. **Posts**:
-   - `createPost`
-   - `getPosts`
-   - `updatePost`
-3. **Notifications**:
-   - `getNotifications`
-   - `markNotificationAsRead`
-
----
-
-## Contributing
-
-1. Fork the repository.
-2. Create a feature branch:
-
-   ```bash
-   git checkout -b feature-name
-   ```
-
-3. Commit changes:
-
-   ```bash
-   git commit -m "Add new feature"
-   ```
-
-4. Push the branch:
-
-   ```bash
-   git push origin feature-name
-   ```
-
-5. Open a Pull Request.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
----
-
-## Contact
-
-For queries or suggestions:
-
-- Email: [hskishanraj@gmail.com](mailto:hskishanraj@gmail.com)
-- GitHub: [kishankumarhs](https://github.com/kishankumarhs)
+- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
+- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
+- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
+- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
+- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
+- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
