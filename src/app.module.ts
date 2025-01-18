@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import mongodbConfig from './shared/config/mongodb.config';
 import { envConfigValidator } from './shared/config/env-validation-schema';
+import { HelloModule } from './hello/hello.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { envConfigValidator } from './shared/config/env-validation-schema';
         abortEarly: true,
       },
     }),
+    HelloModule,
   ],
   controllers: [AppController],
   providers: [AppService],
