@@ -1,0 +1,5 @@
+# Validate commit message format
+if ! grep -qE '^(feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert|merge):' "$1"; then
+  echo "❌ Please use git cz to commit. \n 🚀 Commit message must follow the conventional commit format"
+  exit 1
+fi
